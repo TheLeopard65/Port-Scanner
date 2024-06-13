@@ -47,7 +47,7 @@ def scan(target):
         
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        print("SYNTAX : python3 scanner.py <target>")
+        print("SYNTAX : python3 scanner.py <target> <full/half>")
     else:
         target = socket.gethostbyname(sys.argv[1])
         banner()
