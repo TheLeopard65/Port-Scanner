@@ -6,15 +6,16 @@ def banner():
     print("#" * 35)
     print("TARGET (TEXT) : " + sys.argv[1])
     print("TARGET (IP): " + target)
+    print("PORT : 80")
     print("START TIME : " + str(datetime.now()))
     print("#" * 35)
 
 def scan(target):
     try:
-        for port in range(0,256):
+        for port in range(1,254):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             socket.timeout()
-            result = s.connect_ex((target, port))
+            result = s.connect_ex((target, 80))
             if result == 0:
                 print(f"PORT {port} : OPEN ✅")
             elif result == 1:
