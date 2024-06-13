@@ -18,8 +18,6 @@ def scan(target):
             result = s.connect_ex((target, port))
             if result == 0:
                 print(f"PORT {port} : OPEN ✅")
-            elif result == 1:
-                print(f"PORT {port} : CLOSED ❌")
             s.close()
         
     except KeyboardInterrupt:
