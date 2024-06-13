@@ -21,7 +21,7 @@ def scan(target):
                 if result == 0:
                     print(f"PORT {port} : OPEN ✅")
                 s.close()
-        else (sys.argv[2] == "half"):
+        elif (sys.argv[2] == "half"):
             print("SCAN TYPE : HALF")
             print("PORTS : 1-1024")
             print("-" * 35)      
@@ -32,6 +32,8 @@ def scan(target):
                 if result == 0:
                     print(f"PORT {port} : OPEN ✅")
                 s.close()
+        else:
+            print("SYNTAX : python3 scanner.py <target> <full/half>")
         
     except KeyboardInterrupt:
         print("Exiting Scanner")
