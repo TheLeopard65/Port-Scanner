@@ -6,19 +6,32 @@ def banner():
     print("#" * 35)
     print("TARGET (TEXT) : " + sys.argv[1])
     print("TARGET (IP): " + target)
-    print("PORT : 80")
     print("START TIME : " + str(datetime.now()))
-    print("#" * 35)
 
 def scan(target):
     try:
-        for port in range(1,65535):
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            socket.timeout()
-            result = s.connect_ex((target, port))
-            if result == 0:
-                print(f"PORT {port} : OPEN ✅")
-            s.close()
+        if (sys.argv[2] == "full":
+            print("SCAN TYPE : FULL")
+            print("PORTS : 1-65535")
+            print("-" * 35)
+            for port in range(1,65535):
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                socket.timeout()
+                result = s.connect_ex((target, port))
+                if result == 0:
+                    print(f"PORT {port} : OPEN ✅")
+                s.close()
+        else (sys.argv[2] == "half":
+            print("SCAN TYPE : HALF")
+            print("PORTS : 1-1024")
+            print("-" * 35)      
+            for port in range(1,1024):
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                socket.timeout()
+                result = s.connect_ex((target, port))
+                if result == 0:
+                    print(f"PORT {port} : OPEN ✅")
+                s.close()
         
     except KeyboardInterrupt:
         print("Exiting Scanner")
@@ -33,7 +46,7 @@ def scan(target):
         sys.exit()
         
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("SYNTAX : python3 scanner.py <target>")
     else:
         target = socket.gethostbyname(sys.argv[1])
