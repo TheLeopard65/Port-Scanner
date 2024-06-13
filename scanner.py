@@ -12,10 +12,10 @@ def banner():
 
 def scan(target):
     try:
-        for port in range(1,65353):
+        for port in range(1,65535):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             socket.timeout()
-            result = s.connect_ex((target, 80))
+            result = s.connect_ex((target, port))
             if result == 0:
                 print(f"PORT {port} : OPEN ✅")
             elif result == 1:
