@@ -10,7 +10,7 @@ def banner():
 
 def scan(target):
     try:
-        if (sys.argv[2] == "full":
+        if (sys.argv[2] == "full"):
             print("SCAN TYPE : FULL")
             print("PORTS : 1-65535")
             print("-" * 35)
@@ -21,7 +21,7 @@ def scan(target):
                 if result == 0:
                     print(f"PORT {port} : OPEN ✅")
                 s.close()
-        else (sys.argv[2] == "half":
+        else (sys.argv[2] == "half"):
             print("SCAN TYPE : HALF")
             print("PORTS : 1-1024")
             print("-" * 35)      
