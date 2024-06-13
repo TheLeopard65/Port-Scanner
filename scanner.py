@@ -13,6 +13,7 @@ def scan(target):
         if (sys.argv[2] == "full"):
             print("SCAN TYPE : FULL")
             print("PORTS : 1-65535")
+            print("NOTE : The Full Scan might take a long time to finish")
             print("-" * 35)
             for port in range(1,65535):
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,7 +34,7 @@ def scan(target):
                     print(f"PORT {port} : OPEN ✅")
                 s.close()
         else:
-            print("SYNTAX : python3 scanner.py <target> <full/half>")
+            print("\nSYNTAX : python3 scanner.py <target> <full/half>")
         
     except KeyboardInterrupt:
         print("Exiting Scanner")
