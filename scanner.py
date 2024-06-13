@@ -12,7 +12,7 @@ def banner():
 
 def scan(target):
     try:
-        for port in range(1,254):
+        for port in range(1,65353):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             socket.timeout()
             result = s.connect_ex((target, 80))
